@@ -2,7 +2,7 @@
 
 # Setting working directory
 # Please Note: Here 'UCI HAR Dataset' named changed to 'dataset' for simplicity
-setwd("~/Downloads/assign/r/ch/gc/") 
+setwd("~/Downloads/assign/r/ch/gc/UCI HAR Dataset/") 
 
 # Activity 1
 # Merging training and testing dataset
@@ -10,19 +10,19 @@ setwd("~/Downloads/assign/r/ch/gc/")
 
 # Extract feature_names in variable feat_name
 
-feat_names = read.table('dataset/features.txt')
+feat_names = read.table('features.txt')
 head(feat_names)
 
 # Reading testing file
-test_x = read.table('dataset/test/X_test.txt') # X (from test)
+test_x = read.table('test/X_test.txt') # X (from test)
 head(test_x)
 dim(test_x)
 
-test_y = scan('dataset/test/y_test.txt') # Y (from test)
+test_y = scan('test/y_test.txt') # Y (from test)
 head(test_y)
 length(test_y)
 
-test_subjects = scan('dataset/test/subject_test.txt') # Subject (From test)
+test_subjects = scan('test/subject_test.txt') # Subject (From test)
 head(test_subjects)
 length(test_subjects)
 
@@ -32,15 +32,15 @@ if (length(test_y) != length(test_subjects) || length(test_y) != dim(test_x)[1])
 }
 
 # Reading training files
-train_x = read.table('dataset/train/X_train.txt') # X (From train)
+train_x = read.table('train/X_train.txt') # X (From train)
 head(train_x)
 dim(train_x)
 
-train_y = scan('dataset/train/y_train.txt') # Y (from train)
+train_y = scan('train/y_train.txt') # Y (from train)
 head(train_y)
 length(train_y)
 
-train_subjects = scan('dataset/train/subject_train.txt') # Subject (From train)
+train_subjects = scan('train/subject_train.txt') # Subject (From train)
 head(train_subjects)
 length(train_subjects)
 
@@ -83,7 +83,7 @@ dim(means_and_stds)
 
 # Activity 3: Uses descriptive activity names to name the activities in the data set
 
-activity_labels = read.table('dataset/activity_labels.txt')
+activity_labels = read.table('activity_labels.txt')
 means_and_stds$activity_label = factor(means_and_stds$activity, levels=c(1,2,3,4,5,6), 
                                        labels=activity_labels$V2)
 
@@ -105,4 +105,4 @@ for (subj in subjects) {
   }
 }
 
-write.table(tidy.frame, file="tidy-data.csv" )
+write.table(tidy.frame, file="../tidy-data.csv" )
