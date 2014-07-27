@@ -1,6 +1,8 @@
 ### Codebook
 ## Coursera: Getting and Cleaning Data
 
+Note: Please set the working directory, if you see "no file" error
+
 The generated output is saved to the file tidy-data.csv. 
 
 The analysis addresses the training and test data separately, first combining the feature vector with outcome variables and subject identifiers (e.g. X_train.txt, Y_train.txt, subject_train.txt), and then merges the training and test data into a single, larger dataset.
